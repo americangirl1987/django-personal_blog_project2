@@ -1,0 +1,23 @@
+<h2>Sabrina's Pro.</h2>
+
+{% load static %}
+
+<a href="{% static 'pro/Eng_LangH_8_2020_Machvan.pdf' %}">file</a>
+
+
+<img src="{% static 'pro/christmaslondon.jpg' %}">
+
+{% for project in projects %}
+
+<h3>{{ project.title }}</h3>
+<p>{{ project.desc }}</p>
+<img src="{{ project.image.url }}" height="300" width="500">
+{% if project.url %}
+<br><a href="{{ project.url }}">Link</a>
+{% endif %}
+
+
+
+{% endfor %}
+
+<a href="{% url 'blog:all_blogs' %}">Blog</a>

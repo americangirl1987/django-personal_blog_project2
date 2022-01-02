@@ -1,0 +1,12 @@
+<h1> Blog </h1>
+<h2> News of blog posts </h2>
+
+<h2>Sabrina has written {{ blogs.count }} post{{ blogs.count|pluralize }}  </h2>
+
+{% for blog in blogs %}
+
+<a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+<h5>{{ blog.date|date:'M d Y'|upper }}</h5>
+<p>{{ blog.desc|striptags|truncatechars:5 }}</p>
+
+{% endfor %}
